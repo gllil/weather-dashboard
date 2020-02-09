@@ -1,0 +1,44 @@
+.title,
+.title-wrapper {
+    background-color: grey ;
+}
+
+.search-section {
+ max-width: 25%;
+ padding-right: 20px;
+ display: inline-block;
+}
+
+.current-weather {
+ max-width: 75%;
+ padding-left: 20px;
+ padding-bottom: 20px;
+ margin-top: 20px;
+ margin-left: 20px;
+}
+
+.day-style {
+    min-height: 20%;
+    width:  15%;
+    background-color: #035AFD;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    border: solid 1px blue;
+    border-radius: 10%;
+}
+
+.fiveday-section {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.five-day {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.search-history {
+    color: grey;
+}
