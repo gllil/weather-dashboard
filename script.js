@@ -2,7 +2,7 @@
 // const apiURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid="+apiKey;
 var cityName = "";
 var unixtimestamp = "";
-var searchValue = $(".search-click").val();
+// var searchValue = $(".search-click").val();
 // var dateArr = ["0", "1", "2","3","4"];
 
 
@@ -225,7 +225,7 @@ function history(){
     // $(".search-history").addClass("collection")
     searchHistory.addClass("collection-item btn");
     // searchHistory.attr("href", "#!");
-}
+} 
 
 
 // $(".search-click").on("submit", function(e){
