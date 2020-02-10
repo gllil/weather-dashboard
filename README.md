@@ -3,4 +3,4 @@ This web application will allow the user to input a city and allow to see curren
 
 https://gllil.github.io/weather-dashboard/
 
-
+<img src="https://github.com/gllil/weather-dashboard/blob/master/assets/screenshot.PNG">
