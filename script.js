@@ -2,6 +2,8 @@
 // const apiURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid="+apiKey;
 var cityName = "";
 var unixtimestamp = "";
+// var dateArr = ["0", "1", "2","3","4"];
+
 
 
 
@@ -28,7 +30,7 @@ $(".search").on("change", function(){
             var iconcode = res.weather[0].icon;
             longtitude = res.coord.lon;
             latitude = res.coord.lat;
-            console.log(iconcode)
+            // console.log(iconcode)
             var iconurl = "http://openweathermap.org/img/w/" + iconcode+ ".png";
             $(".main-weather-icon").attr("src", iconurl);
 
@@ -55,30 +57,56 @@ $(".search").on("change", function(){
                 url: "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
                 method: "GET"
             }).then(function (res3){
-                    // var listNumber = ""
-                for(var i = 0; i < res3.list.length; i++){
-                    function dateConversion(){
-                        var dateStamp = res3.list[i].dt;
-                        var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
-                        var date = new Date(dateStamp*1000);
-                        var year = date.getFullYear();
-                        var month = months[date.getMonth()];
-                        var day = date.getDate();
+
+                //weather icons for 5 day forecast
+                var iconCode1 = res3.list[0].weather[0].icon
+                var iconCode2 = res3.list[1].weather[0].icon
+                var iconCode3 = res3.list[2].weather[0].icon
+                var iconCode4 = res3.list[3].weather[0].icon
+                var iconCode5 = res3.list[4].weather[0].icon
+                var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1+ ".png";
+                var iconUrl2= "http://openweathermap.org/img/w/" + iconCode2+ ".png";
+                var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3+ ".png";
+                var iconUrl4 = "http://openweathermap.org/img/w/" + iconCode4+ ".png";
+                var iconUrl5 = "http://openweathermap.org/img/w/" + iconCode5+ ".png";
+            $("#icon1").attr("src", iconUrl1);
+            $("#icon2").attr("src", iconUrl2);
+            $("#icon3").attr("src", iconUrl3);
+            $("#icon4").attr("src", iconUrl4);
+            $("#icon5").attr("src", iconUrl5);
+
+                //temperature for 5 day forecast
+            $(".forecastTemp1").html(Math.round(res3.list[0].main.temp));
+            $(".forecastTemp2").html(Math.round(res3.list[1].main.temp));
+            $(".forecastTemp3").html(Math.round(res3.list[2].main.temp));
+            $(".forecastTemp4").html(Math.round(res3.list[3].main.temp));
+            $(".forecastTemp5").html(Math.round(res3.list[4].main.temp));
+
+                //humidity for 5 day forecast
+            $(".foreHumidity1").html(res3.list[0].main.humidity);
+            $(".foreHumidity2").html(res3.list[1].main.humidity);
+            $(".foreHumidity3").html(res3.list[2].main.humidity);
+            $(".foreHumidity4").html(res3.list[3].main.humidity);
+            $(".foreHumidity5").html(res3.list[4].main.humidity);
+
+                
+
+                    // $(".day-date1").html(res3.list[0].dt);
+                    // dateConversion();
+                    // function dateConversion(){
+                    //     var dateStamp = res3.list[0].dt
+                    //     var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                    //     var date = new Date(dateStamp*1000);
+                    //     var year = date.getFullYear();
+                    //     var month = months[date.getMonth()];
+                    //     var day = date.getDate();
                     
-                        var convertDate = month+'/'+day+'/'+year;
-                        convertDate++
-                        $(".day-date").html(convertDate); 
-                    }
+                    //     var convertDate = month+'/'+day+'/'+year;
+                    //     convertDate++
+                    //     $(".day-date1").html(convertDate); 
+                    // }
                     // listNumber = 0;
-                    
-                var dateText = $("<div>").html(res3.list[i].dt);
-
-                dateText.addClass("day-date");
-                dateText.attr("data-index", i);
-                dateText.dateConversion();
-
-                $(".day").append(dateText);
-                }  
+                     
                     
             })
             
