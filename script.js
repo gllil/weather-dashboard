@@ -61,11 +61,11 @@ $(".search").on("change", function(){
             }).then(function (res3){
 
                 //weather icons for 5 day forecast
-                var iconCode1 = res3.list[0].weather[0].icon
-                var iconCode2 = res3.list[1].weather[0].icon
-                var iconCode3 = res3.list[2].weather[0].icon
-                var iconCode4 = res3.list[3].weather[0].icon
-                var iconCode5 = res3.list[4].weather[0].icon
+                var iconCode1 = res3.list[2].weather[0].icon
+                var iconCode2 = res3.list[9].weather[0].icon
+                var iconCode3 = res3.list[16].weather[0].icon
+                var iconCode4 = res3.list[23].weather[0].icon
+                var iconCode5 = res3.list[33].weather[0].icon
                 var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1+ ".png";
                 var iconUrl2= "http://openweathermap.org/img/w/" + iconCode2+ ".png";
                 var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3+ ".png";
@@ -78,30 +78,30 @@ $(".search").on("change", function(){
             $("#icon5").attr("src", iconUrl5);
 
                 //temperature for 5 day forecast
-            $(".forecastTemp1").html(Math.round(res3.list[0].main.temp));
-            $(".forecastTemp2").html(Math.round(res3.list[1].main.temp));
-            $(".forecastTemp3").html(Math.round(res3.list[2].main.temp));
-            $(".forecastTemp4").html(Math.round(res3.list[3].main.temp));
-            $(".forecastTemp5").html(Math.round(res3.list[4].main.temp));
+            $(".forecastTemp1").html(Math.round(res3.list[2].main.temp));
+            $(".forecastTemp2").html(Math.round(res3.list[9].main.temp));
+            $(".forecastTemp3").html(Math.round(res3.list[16].main.temp));
+            $(".forecastTemp4").html(Math.round(res3.list[23].main.temp));
+            $(".forecastTemp5").html(Math.round(res3.list[33].main.temp));
 
                 //humidity for 5 day forecast
-            $(".foreHumidity1").html(res3.list[0].main.humidity);
-            $(".foreHumidity2").html(res3.list[1].main.humidity);
-            $(".foreHumidity3").html(res3.list[2].main.humidity);
-            $(".foreHumidity4").html(res3.list[3].main.humidity);
-            $(".foreHumidity5").html(res3.list[4].main.humidity);
+            $(".foreHumidity1").html(res3.list[2].main.humidity);
+            $(".foreHumidity2").html(res3.list[9].main.humidity);
+            $(".foreHumidity3").html(res3.list[16].main.humidity);
+            $(".foreHumidity4").html(res3.list[23].main.humidity);
+            $(".foreHumidity5").html(res3.list[33].main.humidity);
 
                 
 
                     
             dateConversion1();
             function dateConversion1(){
-                var dateStamp = res3.list[0].dt;
+                var dateStamp = res3.list[2].dt;
                 var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
                 var date = new Date(dateStamp*1000);
                 var year = date.getFullYear();
                 var month = months[date.getMonth()];
-                var day = date.getDate() + 1;
+                var day = date.getDate();
                 var convertDate = month+'/'+day+'/'+year;
                 $(".day-date1").html(convertDate); 
                 console.log(dateStamp)
@@ -113,12 +113,12 @@ $(".search").on("change", function(){
 
             dateConversion2();
             function dateConversion2(){
-                var dateStamp = res3.list[1].dt;
+                var dateStamp = res3.list[9].dt;
                 var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
                 var date = new Date(dateStamp*1000);
                 var year = date.getFullYear();
                 var month = months[date.getMonth()];
-                var day = date.getDate() + 2;
+                var day = date.getDate();
                 var convertDate = month+'/'+day+'/'+year;
                 $(".day-date2").html(convertDate); 
                 console.log(dateStamp)
@@ -130,12 +130,12 @@ $(".search").on("change", function(){
 
             dateConversion3();
             function dateConversion3(){
-                var dateStamp = res3.list[2].dt;
+                var dateStamp = res3.list[16].dt;
                 var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
                 var date = new Date(dateStamp*1000);
                 var year = date.getFullYear();
                 var month = months[date.getMonth()];
-                var day = date.getDate() + 3;
+                var day = date.getDate();
             
                 var convertDate = month+'/'+day+'/'+year;
                 $(".day-date3").html(convertDate); 
@@ -149,12 +149,12 @@ $(".search").on("change", function(){
 
             dateConversion4();
             function dateConversion4(){
-                var dateStamp = res3.list[3].dt;
+                var dateStamp = res3.list[23].dt;
                 var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
                 var date = new Date(dateStamp*1000);
                 var year = date.getFullYear();
                 var month = months[date.getMonth()];
-                var day = date.getDate() + 4;
+                var day = date.getDate();
             
                 var convertDate = month+'/'+day+'/'+year;
                 $(".day-date4").html(convertDate); 
@@ -168,12 +168,12 @@ $(".search").on("change", function(){
 
             dateConversion5();
             function dateConversion5(){
-                var dateStamp = res3.list[4].dt;
+                var dateStamp = res3.list[33].dt;
                 var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
                 var date = new Date(dateStamp*1000);
                 var year = date.getFullYear();
                 var month = months[date.getMonth()];
-                var day = date.getDate() + 5;
+                var day = date.getDate();
             
                 var convertDate = month+'/'+day+'/'+year;
                 $(".day-date5").html(convertDate);
