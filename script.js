@@ -20,11 +20,55 @@ $(".search").on("change", function(){
     $(".welcome").hide();
     $(".current-weather").show();
     $(".fiveday-section").show();
-    // weatherInfo();
+    weatherInfo();
+    searchClickEvent();
 
-    // function weatherInfo(){
+
+    // $(".search-history").on("click", ".history-click", function(){
+    //     // e.preventDefault();
+    //     var searchName = $(".history-click").val();
+    //     var searchEvent = searchName.html(".search");
+
+    //         weatherInfo();  
+    //     })
+
+    // })
+    // console.log(cityName)
+
+            
+
+    // $.ajax({
+    //     url: "api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
+    //     method: "GET"
+    // }).then(function(res3){
+    //    for (var i = 0; i < res3.list.length; i++){
+    //        var date = moment().format("mmddyyyy");
+    //    }
+
+    // });
+});
+
+
+
+    // $(".search-history").on("click", function(){
+        
+        
+    // })
+var counter = 0
+function history(){
+    counter++;
+    if(counter <= 5)
+    var searchHistory = $("<a>").html(cityName);
+    $(".search-history").append(searchHistory);
+    $(".search-history").show();
+    // $(".search-history").addClass("collection")
+    searchHistory.addClass("collection-item btn history-click");
+    // searchHistory.attr("href", "#!");
+} 
+
+function weatherInfo(){
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
         method: "GET"
     }).then(function(res){
             $(".city").html(res.name)
@@ -39,7 +83,7 @@ $(".search").on("change", function(){
             $(".main-weather-icon").attr("src", iconurl);
 
             $.ajax({
-                url: "http://api.openweathermap.org/data/2.5/uvi?appid=d0a375328afdfa592d8c75ccd455a704&lat=" + latitude + "&lon=" + longtitude,
+                url: "https://api.openweathermap.org/data/2.5/uvi?appid=d0a375328afdfa592d8c75ccd455a704&lat=" + latitude + "&lon=" + longtitude,
                 method: "GET"
             }).then(function(res2){
                 $(".uv-index").html(res2.value)
@@ -59,7 +103,7 @@ $(".search").on("change", function(){
                 $(".date").html(convertDate); 
             }
             $.ajax({
-                url: "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
+                url: "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
                 method: "GET"
             }).then(function (res3){
 
@@ -69,11 +113,11 @@ $(".search").on("change", function(){
                 var iconCode3 = res3.list[16].weather[0].icon
                 var iconCode4 = res3.list[23].weather[0].icon
                 var iconCode5 = res3.list[33].weather[0].icon
-                var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1+ ".png";
-                var iconUrl2= "http://openweathermap.org/img/w/" + iconCode2+ ".png";
-                var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3+ ".png";
-                var iconUrl4 = "http://openweathermap.org/img/w/" + iconCode4+ ".png";
-                var iconUrl5 = "http://openweathermap.org/img/w/" + iconCode5+ ".png";
+                var iconUrl1 = "https://openweathermap.org/img/w/" + iconCode1+ ".png";
+                var iconUrl2= "https://openweathermap.org/img/w/" + iconCode2+ ".png";
+                var iconUrl3 = "https://openweathermap.org/img/w/" + iconCode3+ ".png";
+                var iconUrl4 = "https://openweathermap.org/img/w/" + iconCode4+ ".png";
+                var iconUrl5 = "https://openweathermap.org/img/w/" + iconCode5+ ".png";
             $("#icon1").attr("src", iconUrl1);
             $("#icon2").attr("src", iconUrl2);
             $("#icon3").attr("src", iconUrl3);
@@ -188,51 +232,23 @@ $(".search").on("change", function(){
                     
             })
 
-            
+        
             
     });
 
+    }
 
-
-    // console.log(cityName)
-
+    function searchClickEvent(){
+        $(".history-click").on("click", function(e){
+            // e.preventDefault();
             
-
-    // $.ajax({
-    //     url: "api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
-    //     method: "GET"
-    // }).then(function(res3){
-    //    for (var i = 0; i < res3.list.length; i++){
-    //        var date = moment().format("mmddyyyy");
-    //    }
-
-    // });
-});
-
-
-
-    // $(".search-history").on("click", function(){
+            cityName = $(".history-click").val();
+        // console.log(cityName)
+            weatherInfo();
         
-        
-    // })
-var counter = 0
-function history(){
-    counter++;
-    if(counter <= 5)
-    var searchHistory = $("<a>").html(cityName);
-    $(".search-history").append(searchHistory);
-    $(".search-history").show();
-    // $(".search-history").addClass("collection")
-    searchHistory.addClass("collection-item btn");
-    // searchHistory.attr("href", "#!");
-} 
+        })
+        }
 
-
-// $(".search-click").on("submit", function(e){
-//     e.preventDefault();
-//     cityName = $(this).val();
-// weatherInfo()
-// })
 
 
 });
