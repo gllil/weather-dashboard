@@ -9,6 +9,14 @@
  display: inline-block;
 }
 
+.welcome {
+    max-width: 75%;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 .current-weather {
  max-width: 75%;
  padding-left: 20px;
@@ -44,4 +52,15 @@
     text-align: center;
     border: solid 1px black;
     display: none;
+}
+
+hr {
+    line-height: 2px;
+    color: black;
+    opacity: 500%;
+    max-width: 100%;
+}
+
+.explanation {
+    font-style: italic;
 }

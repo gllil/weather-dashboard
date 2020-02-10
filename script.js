@@ -17,6 +17,9 @@ $(document).ready(function(){
 $(".search").on("change", function(){
     cityName = $(this).val();
     history();
+    $(".welcome").hide();
+    $(".current-weather").show();
+    $(".fiveday-section").show();
     // weatherInfo();
 
     // function weatherInfo(){
