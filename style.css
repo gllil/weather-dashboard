@@ -41,4 +41,7 @@
 
 .search-history {
     color: grey;
+    text-align: center;
+    border: solid 1px black;
+    display: none;
 }

@@ -2,6 +2,7 @@
 // const apiURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid="+apiKey;
 var cityName = "";
 var unixtimestamp = "";
+var searchValue = $(".search-click").val();
 // var dateArr = ["0", "1", "2","3","4"];
 
 
@@ -16,9 +17,9 @@ $(document).ready(function(){
 $(".search").on("change", function(){
     cityName = $(this).val();
     history();
-   
+    // weatherInfo();
 
-    // console.log(cityName)
+    // function weatherInfo(){
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
         method: "GET"
@@ -49,6 +50,7 @@ $(".search").on("change", function(){
                 var year = date.getFullYear();
                 var month = months[date.getMonth()];
                 var day = date.getDate();
+                console.log(date)
             
                 var convertDate = month+'/'+day+'/'+year;
                 $(".date").html(convertDate); 
@@ -91,26 +93,106 @@ $(".search").on("change", function(){
 
                 
 
-                    // $(".day-date1").html(res3.list[0].dt);
-                    // dateConversion();
-                    // function dateConversion(){
-                    //     var dateStamp = res3.list[0].dt
-                    //     var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
-                    //     var date = new Date(dateStamp*1000);
-                    //     var year = date.getFullYear();
-                    //     var month = months[date.getMonth()];
-                    //     var day = date.getDate();
                     
-                    //     var convertDate = month+'/'+day+'/'+year;
-                    //     convertDate++
-                    //     $(".day-date1").html(convertDate); 
-                    // }
-                    // listNumber = 0;
-                     
+            dateConversion1();
+            function dateConversion1(){
+                var dateStamp = res3.list[0].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate() + 1;
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date1").html(convertDate); 
+                console.log(dateStamp)
+            }
+            console.log(dateConversion1());
+                    
+                    
+        
+
+            dateConversion2();
+            function dateConversion2(){
+                var dateStamp = res3.list[1].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate() + 2;
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date2").html(convertDate); 
+                console.log(dateStamp)
+            }
+            console.log(dateConversion2());
+                    
+                    
+        
+
+            dateConversion3();
+            function dateConversion3(){
+                var dateStamp = res3.list[2].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate() + 3;
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date3").html(convertDate); 
+                convertDate++
+                console.log(dateStamp)
+            }
+            console.log(dateConversion3());
+                    
+                    
+    
+
+            dateConversion4();
+            function dateConversion4(){
+                var dateStamp = res3.list[3].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate() + 4;
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date4").html(convertDate); 
+                convertDate++
+                console.log(dateStamp)
+            }
+            console.log(dateConversion4());
+                    
+                    
+
+
+            dateConversion5();
+            function dateConversion5(){
+                var dateStamp = res3.list[4].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate() + 5;
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date5").html(convertDate);
+                convertDate++
+                console.log(dateStamp) 
+            }
+            console.log(dateConversion5());
+                    
                     
             })
+
+            
             
     });
+
+
+
+    // console.log(cityName)
+
             
 
     // $.ajax({
@@ -124,18 +206,31 @@ $(".search").on("change", function(){
     // });
 });
 
+
+
     // $(".search-history").on("click", function(){
         
         
     // })
-
+var counter = 0
 function history(){
+    counter++;
+    if(counter <= 5)
     var searchHistory = $("<a>").html(cityName);
     $(".search-history").append(searchHistory);
-    $(".search-history").addClass("collection")
-    searchHistory.addClass("collection-item");
+    $(".search-history").show();
+    // $(".search-history").addClass("collection")
+    searchHistory.addClass("collection-item btn");
     searchHistory.attr("href", "#!");
 }
+
+
+// $(".search-click").on("submit", function(e){
+//     e.preventDefault();
+//     cityName = $(this).val();
+// weatherInfo()
+// })
+
 
 });
 
