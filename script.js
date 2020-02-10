@@ -224,7 +224,7 @@ function history(){
     $(".search-history").show();
     // $(".search-history").addClass("collection")
     searchHistory.addClass("collection-item btn");
-    searchHistory.attr("href", "#!");
+    // searchHistory.attr("href", "#!");
 }
 
 
