@@ -2,6 +2,7 @@
 // const apiURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid="+apiKey;
 var cityName = "";
 var unixtimestamp = "";
+var confirm = true;
 // var searchValue = $(".search-click").val();
 // var dateArr = ["0", "1", "2","3","4"];
 
@@ -20,8 +21,10 @@ $(".search").on("change", function(){
     $(".welcome").hide();
     $(".current-weather").show();
     $(".fiveday-section").show();
-    weatherInfo();
-    searchClickEvent();
+    $("#clearBtn").show();
+    weatherInfo(cityName, confirm);
+    // searchClickEvent();
+
 
 
     // $(".search-history").on("click", ".history-click", function(){
@@ -238,16 +241,32 @@ function weatherInfo(){
 
     }
 
-    function searchClickEvent(){
-        $(".history-click").on("click", function(e){
-            // e.preventDefault();
+    
+    // $(".history-click").on("click", function(){
+    //     cityName = $(".history-click").val();
+    //     weatherInfo();
+    // })
+
+    $("#clearBtn").on("click", function(){
+        $(".search-history").html("");
+        $(".search").val("");
+        $(".search-history").hide();
+        $("#clearBtn").hide();
+        $(".current-weather").hide();
+        $(".fiveday-section").hide();
+        $(".welcome").show();
+    })
+
+    // function searchClickEvent(){
+    //     $(".history-click").on("click", function(e){
+    //         // e.preventDefault();
             
-            cityName = $(".history-click").val();
-        // console.log(cityName)
-            weatherInfo();
+    //         cityName = $(".history-click").val();
+    //     // console.log(cityName)
+    //         weatherInfo();
         
-        })
-        }
+    //     })
+    //     }
 
 
 
